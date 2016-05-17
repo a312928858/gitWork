@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+		
+		<action name="*!*" class="com.qyb.vote.action.VoteAction" method="{2}">
+		  <result name="success">/reg_success.html</result>
+		  <result name="list">/manage.jsp</result>
+		  <result name="read">/add.jsp</result>
+		  <result name="modify">/modify.jsp</result>
+		  <result name="update">/update.jsp</result>
+		  <result name="view">/view.jsp</result>
+		  <result name="vote">/vote.jsp</result>
+		  <result name="savevote">/sv_success.html</result>
+		</action>
+		
+		<action name="Register">
+		  <result>/register.html</result>
+		</action>
+		<action name="Login">
+		  <result>/login.html</result>
+		</action>
+    </package>
+</struts>
