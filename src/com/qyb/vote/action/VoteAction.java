@@ -28,6 +28,7 @@ public class VoteAction implements ServletRequestAware {
 		String userId=request.getParameter("userId");
 		String userName=request.getParameter("userName");
 		String password=request.getParameter("password");
+		System.out.println("啦啦啦啦啦");
 		int num=vs.addUser(new User(userId,userName,password));
 		if(num>0){
 			return "success"; 
@@ -50,19 +51,19 @@ public class VoteAction implements ServletRequestAware {
 		return "fail";
 	}
 	
-	//打开添加新投票页�?
+	//打开添加新投票页�?
 	public String read(){
 		return "read";
 	}
 	
-	//返回投票列表的方�?
+	//返回投票列表的方�?
 	public String list(){
 		//调刷新投票列表的方法
 		voteList();
 		return "list";
 	}
 	
-	//添加新投�?
+	//添加新投�?
 	public String save(){
 		String title=request.getParameter("title");
 		int type=Integer.parseInt(request.getParameter("type"));
@@ -106,7 +107,7 @@ public class VoteAction implements ServletRequestAware {
 		}
 	}
 	
-	//根据主题的模糊信息查�?
+	//根据主题的模糊信息查�?
 	public String search(){
 		String title=request.getParameter("keywords");
 		subject=vs.findVote(title);
@@ -154,7 +155,7 @@ public class VoteAction implements ServletRequestAware {
 		return "update";
 	}
 	
-	//对投票主题进行维�?
+	//对投票主题进行维�?
 	public String xiugai(){
 		int sid=Integer.parseInt(request.getParameter("sid"));
 		String title=request.getParameter("title");
@@ -214,7 +215,7 @@ public class VoteAction implements ServletRequestAware {
 				Item onums=vs.findVoteOnum(se.getSid(), options.get(i).getOid());
 				double xuanshu=onums.getOnum();
 				
-				double pp=(double)Math.round((xuanshu/zoushu)*100)/100;   //百分比保�?位小�?
+				double pp=(double)Math.round((xuanshu/zoushu)*100)/100;   //百分比保�?位小�?
 				
 				String par=String.valueOf(pp*100);   //各个选项的百分比
 				
@@ -252,7 +253,7 @@ public class VoteAction implements ServletRequestAware {
 		return "vote";
 	}
 	
-	//�?��投票
+	//�?��投票
 	public String savevote(){
 		String title=request.getParameter("title");
 		int onum=Integer.parseInt(request.getParameter("onum"));
